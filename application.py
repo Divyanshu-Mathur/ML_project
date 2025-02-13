@@ -7,9 +7,9 @@ from src.pipeline.predict_pipeline import CustomData,PredictPipeline
 application = Flask(__name__)
 app = application
 
-@app.route("/")
+@app.route("/",methods=['GET','POST'])
 def home():
-    return render_template("index.html")
+    return render_template("home.html")
 
 
 @app.route("/predictdata",methods=['GET','POST'])
@@ -33,7 +33,7 @@ def predict():
         
         predict_pipeline = PredictPipeline()
         result  = predict_pipeline.predict(pred_df)
-        return render_template("home.html",result=round(result[0],3))
+        return render_template("index.html",result=round(result[0],3))
     
     
 
