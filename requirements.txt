@@ -7,5 +7,5 @@ xgboost
 dill
 flask
 streamlit
-gunicorn
-# -e .
+gunicorn 
+-e .
