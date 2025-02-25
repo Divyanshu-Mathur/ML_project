@@ -33,6 +33,10 @@ def predict():
         
         predict_pipeline = PredictPipeline()
         result  = predict_pipeline.predict(pred_df)
+        if result[0]>100:
+            result[0]=100
+        elif result[0]<0:
+            result[0] = 0
         return render_template("index.html",result=round(result[0],3))
     
     
